@@ -44,7 +44,8 @@ ObjetEmpruntable* Bibliotheque::trouverObjetEmpruntable(const std::string& cote)
 {
 	for (size_t i = 0; i < vecObj_.size(); i++)
 	{
-		// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
+		if (vecObj_[i]->obtenirCote() == cote)
+			return vecObj_[i];
 	}
 	return nullptr;
 }
@@ -54,12 +55,7 @@ ObjetEmpruntable* Bibliotheque::trouverObjetEmpruntable(const std::string& cote)
 // Retourne un string correspondant au nom de la classe selon la cote donnée
 std::string Bibliotheque::obtenirClasseObjet(std::string const & cote) const
 {
-	for (int i = 0; i < vecObj_.size(); i++)
-	{
-		// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
-	}
-
-	return "";
+	return trouverObjetEmpruntable(cote)->obtenirNomClasse();
 }
 
 
@@ -117,7 +113,8 @@ bool Bibliotheque::ajouterObjetEmpruntable(ObjetEmpruntable* objet)
 	bool estPresent = false;
 	for (size_t i = 0; i < vecObj_.size(); i++)
 	{
-		// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
+		if (vecObj_[i] == objet)
+			estPresent = true;
 	}
 
 	if (!estPresent)
@@ -134,10 +131,10 @@ bool Bibliotheque::retirerObjetEmpruntable(const std::string & cote)
 
 	for (size_t i = 0; i < vecObj_.size(); i++)
 	{
-		// Si le livre est trouvé, alors swap sa position avec le dernier élément du vecteur, 
-		// puis enlever de le dernier élément du vecteur
-		
-		// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
+		if (vecObj_[i]->obtenirCote() == cote){
+			vecObj_[i] = vecObj_[vecObj_.size() - 1];
+			vecObj_.pop_back();
+		}
 	}
 
 
@@ -156,7 +153,7 @@ void Bibliotheque::rechercherObjetEmpruntable(const string& str) const
 		// Utilisez : vecObj_[i]->afficherObjetEmpruntable(cout);
 		
 	}
-
+		
 	if (!trouve)
 	{
 		cout << "Aucun Resultat Trouve :-(" << endl;

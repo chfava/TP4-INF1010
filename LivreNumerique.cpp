@@ -72,7 +72,6 @@ bool LivreNumerique::recherche(const std::string& motsCle) const{
 ostream& operator<<(ostream& o, LivreNumerique livreNumerique){
 	o << "Objet Numérique: Taille: " << livreNumerique.tailleOctet_ << "Lien Internet: " << livreNumerique.lien_;
 	o << Livre(livreNumerique);
-	o << endl;
 	return o;
 };
 
