@@ -36,7 +36,7 @@ public :
 	void modifierCote(const std::string& cote);
 	void modifierAnnee(unsigned int annee);
 	//recherche renvoie un true si le motsCle est présent dans le titre ou dans la cote; false sinon
-	bool recherche(const std::string& motsCle) const;
+	virtual bool recherche(const std::string& motsCle) const;
 
 
 	friend std::ostream& operator<<(std::ostream& o, const ObjetEmpruntable& objetEmpruntable);

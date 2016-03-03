@@ -149,9 +149,10 @@ void Bibliotheque::rechercherObjetEmpruntable(const string& str) const
 	//recherche parmi les objets empruntable
 	for (size_t i = 0; i < vecObj_.size(); i++)
 	{
-		// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
-		// Utilisez : vecObj_[i]->afficherObjetEmpruntable(cout);
-		
+		if (vecObj_[i]->recherche(str)){
+			vecObj_[i]->afficherObjetEmpruntable(cout);
+			trouve = true;
+		}
 	}
 		
 	if (!trouve)
@@ -195,7 +196,8 @@ bool Bibliotheque::emprunter(const string& matricule, const string& cote, unsign
 
 		if (peutEmprunte)
 		{
-			// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
+			vecEmprunts_.push_back(new Emprunt(matricule, *obj, date));
+			obj->modifierNbDisponibles(obj->obtenirNbDisponibles()-1)
 		}
 	}
 
@@ -247,8 +249,19 @@ void Bibliotheque::infoAbonne(const string& matricule) const
 
 	if (ab != nullptr)
 	{
-		// !!!!!!!!!! A COMPLETER !!!!!!!!!!!
-		// Utilisez dynamic_cast<>()  pour convertir les types de pointeurs et appeler le bon opérateur <<
+		string type = ab->obtenirNomClasse();
+		if (type == "Professeur"){
+			cout << static_cast<Professeur*>(ab);
+		}
+		else{
+			if (type == "Etudiant"){
+				cout << static_cast<Etudiant*>(ab);
+			}
+			else if(type == "EtudiantBaccalaureat"){
+				cout << static_cast<EtudiantBaccalaureat*>(ab);
+			}
+		}
+
 	}
 	else
 	{
