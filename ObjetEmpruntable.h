@@ -14,7 +14,6 @@ public :
 
 	std::string ObjetEmpruntable::obtenirNomClasse() const;
 	
-	
 	/// Anciens TP
 	ObjetEmpruntable();
 	ObjetEmpruntable(const std::string& cote, const std::string& titre, unsigned int annee,
