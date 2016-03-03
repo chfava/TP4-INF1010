@@ -29,9 +29,20 @@ enum FORMAT_DOCUMENT
 class LivreNumerique :	public ObjetNumerique, public Livre
 {
 public:
-	
-	
-	
+	LivreNumerique();
+	LivreNumerique(FORMAT_DOCUMENT format, unsigned int tailleOctet, std::string lien,
+		const std::string& cote, const std::string& titre, unsigned int annee,
+		unsigned int ageMin, unsigned int nbExemplaires, const std::string& auteur, const std::string& genre);
+	~LivreNumerique();
+	FORMAT_DOCUMENT obtenirFormat()const;
+	void modifierFormat(FORMAT_DOCUMENT format);
+	unsigned int obtenirTailleOctet()const;
+	void modifierTailleOctet(unsigned int tailleOctet);
+	std::string obtenirLien()const;
+	void modifierLien(std::string lien);
+	std::string obtenirFormatStr()const;
+	bool recherche(const std::string& motsCle) const;
+	friend std::ostream& operator<<(std::ostream& o, LivreNumerique livreNumerique);
 
 private:
 	FORMAT_DOCUMENT format_;
