@@ -1,3 +1,10 @@
+/*
+Fichier: Emprunt.h
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 1er mars 2016
+Date de modification: 4 mars 2016
+Description: Description de la classe Emprunt
+*/
 #ifndef EMPRUNT_H
 #define EMPRUNT_H
 
