@@ -1,10 +1,10 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Fichier: Bibliotheque.cpp
-//	Auteur(s) : Charles - Olivier Favreau et Stéphanie Leclerc
-//	Date de creation : 01 mars 2016
-//	Date de modification : 03 mars 2016
-//Description : Fonctions reliées à classe Bibliotheque
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+Fichier: Bibliotheqe.cpp
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 1er mars 2016
+Date de modification: 4 mars 2016
+Description: Fonctions reliées à classe Bibliotheque
+*/
 
 #include <iostream>
 #include <vector>
@@ -16,23 +16,23 @@
 #include "EtudiantBaccalaureat.h"
 
 using namespace std;
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-//Le constructeur par défaut construit un objet de la classe Bibliothèque 
-//Aucun paramètre.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::Bibliotheque
+* Description: Constructeur par défaut
+* Paramètres: aucun
+* Retour: aucun
+****************************************************************************/
 Bibliotheque::Bibliotheque()
 {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-//Le destructeur libère la mémoire occupée par la classe.
-//Aucun paramètre.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::~Bibliotheque
+* Description: Destructeur
+* Paramètres: aucun
+* Retour: aucun
+****************************************************************************/
 Bibliotheque::~Bibliotheque()
 {
 	// Supprimer uniquement les emprunts
@@ -43,12 +43,12 @@ Bibliotheque::~Bibliotheque()
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Retourne l'abonné selon le matricule donné
-//@param string matricule (Référence)
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*********************************************************************************
+* Fonction: Bibliotheque::trouverAbonne
+* Description: Retourne le pointeur de l'abonne qui correspond au matricule
+* Paramètres: - string matricule: un matricule à chercher dans le vecAbonnes_
+* Retour: (Abonne*) un pointeur d'abonne
+**********************************************************************************/
 Abonne * Bibliotheque::trouverAbonne(const std::string & matricule) const
 {
 	for (size_t i = 0; i < vecAbonnes_.size(); i++)
@@ -63,13 +63,12 @@ Abonne * Bibliotheque::trouverAbonne(const std::string & matricule) const
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Retourne l'objet empruntable selon la cote donnée
-//@param string cote (Référence)
-//@return ObjetEmpruntable*
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*************************************************************************************
+* Fonction: Bibliotheque::trouverObjetEmpruntable
+* Description: Retourne le pointeur d'un objet empruntable qui correspond à la cote
+* Paramètres: - string cote: une cote à trouver (OUT)
+* Retour: (ObjetEmpruntable*) un pointeur d'un objet empruntable 
+*************************************************************************************/
 ObjetEmpruntable* Bibliotheque::trouverObjetEmpruntable(const std::string& cote) const
 {
 	for (size_t i = 0; i < vecObj_.size(); i++)
@@ -83,26 +82,24 @@ ObjetEmpruntable* Bibliotheque::trouverObjetEmpruntable(const std::string& cote)
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Retourne un string correspondant au nom de la classe selon la cote donnée
-//@param string cote (Référence)
-//@return string
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::obtenirClasseObjet
+* Description: Retourne la classe de l'objet empruntable pour une cote donnee
+* Paramètres: - string cote: une cote d'un objet empruntable (OUT)
+* Retour: (string) la classe de l'objet empruntable pour cette cote 
+****************************************************************************/
 std::string Bibliotheque::obtenirClasseObjet(std::string const & cote) const
 {
 	return trouverObjetEmpruntable(cote)->obtenirNomClasse();
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Ajoute un objet Aonnne à la Bibliothèque
-//@param Abonne abonne (Référence)
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*****************************************************************************************
+* Fonction: Bibliotheque::ajouterAbonne
+* Description: Verifie si un abonne a été ajouté a la bibliotheque
+* Paramètres: - Abonne abonne: un abonne a ajouter
+* Retour: (bool) true si l'abonne est ajouté, false s'il est deja dans le vecAbonnes_
+*****************************************************************************************/
 bool Bibliotheque::ajouterAbonne(Abonne& abonne)
 {
 	// Vérifier s'il est présent dans le vecteur. Si non, l'ajouter
@@ -121,14 +118,12 @@ bool Bibliotheque::ajouterAbonne(Abonne& abonne)
 	}
 	return !estPresent;
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Retire un abonne de la Bibliothèque et retoune vrai si l'abonne a été enlevé avec succès.
-//@param string matricule (Référence)
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::retirerAbonne
+* Description: Verifie si un abonne a ete retire
+* Paramètres: - string matricule: le matricule d'un abonne (OUT)
+* Retour: (bool) true si l'abonne a ete retire, false sinon
+****************************************************************************/
 bool Bibliotheque::retirerAbonne(const string& matricule)
 {
 	bool estRetire = false;
@@ -155,14 +150,12 @@ bool Bibliotheque::retirerAbonne(const string& matricule)
 
 	return estRetire;
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Ajoute un pointeur ObjetEmpruntable à la Bibliothèque et retourne une valeur booléenne confirmant l'action.
-//@param ObjetEmpruntable* objet
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/************************************************************************************************************************
+* Fonction: Bibliotheque::ajouterObjetEmpruntable
+* Description: Verifie si un objet empruntable a ete ajoute et ajoute un pointeur ObjetEmpruntable a la Bibliotheque
+* Paramètres: - ObjetEmpruntable* objet: le pointeur d'un objet a ajouter (OUT)
+* Retour: (bool) true si l'objet a ete ajoute, false sinon
+*************************************************************************************************************************/
 bool Bibliotheque::ajouterObjetEmpruntable(ObjetEmpruntable* objet)
 {
 	// Vérifier s'il est présent dans le vecteur. Si non, l'ajouter
@@ -180,14 +173,12 @@ bool Bibliotheque::ajouterObjetEmpruntable(ObjetEmpruntable* objet)
 	return !estPresent;
 }
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Retire un ObjetEmpruntable à la Bibliothèque et retourne une valeur booléenne confirmant l'action.
-//@param string cote (Référence)
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************************************
+* Fonction: Bibliotheque::retirerObjetEmpruntable
+* Description: Verifie si un objet empruntable a ete retire et retire cet objet a la bibliotheque
+* Paramètres: - string cote: la cote de l'objet empruntable a retirer (OUT)
+* Retour: (bool) true si l'objet a ete retire, false sinon
+*******************************************************************************************************/
 bool Bibliotheque::retirerObjetEmpruntable(const std::string & cote)
 {
 
@@ -203,14 +194,12 @@ bool Bibliotheque::retirerObjetEmpruntable(const std::string & cote)
 	return false;
 }
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-//recherche la chaine de mots parmi les attributs de type string de tous les classes de la famille ObjetEmpruntable.
-//@param string str (Référence)
-//
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::rechercherObjetEmpruntable
+* Description: Recherche une chaine de mots dans les attributs d'un objet empruntable
+* Paramètres: - string str: la chaine de mots à chercher (OUT)
+* Retour: aucun
+****************************************************************************/
 void Bibliotheque::rechercherObjetEmpruntable(const string& str) const
 {
 	bool trouve = false;
@@ -230,15 +219,13 @@ void Bibliotheque::rechercherObjetEmpruntable(const string& str) const
 	}
 }
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Vérifie si les conditions de bases sont respectées et va vérifier aussi parmi les éléments dérivés d'Abonne.
-//@param string matricule (Référence)
-//@param ObjetEmpruntable objetEmpruntable (Référence)
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**********************************************************************************************
+* Fonction: Bibliotheque::estEmpruntable
+* Description: Verifie si l'objet empruntable peut etre emprunte par un abonne 
+* Paramètres: - string matricule: le matricule de l'abonne qui veut faire l'emprunt (OUT)
+*             - ObjetEmpruntable objetEmpruntable: un objet à emprunter (OUT)
+* Retour: (bool) true si l'objet empruntable peut etre emprunte par un abonne, false sinon
+***********************************************************************************************/
 bool Bibliotheque::estEmpruntable(const std::string & matricule, const ObjetEmpruntable & objetEmpruntable) const
 {	
 	bool empruntable = false;
@@ -253,16 +240,14 @@ bool Bibliotheque::estEmpruntable(const std::string & matricule, const ObjetEmpr
 	
 	return empruntable;
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Emprunte l'objet selon d'après sa cote pour la personne correspondant au matricule.
-//@param string matricule (Référence)
-//@param string cote (Référence)
-//@param unsigned int date 
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*******************************************************************************************
+* Fonction: Bibliotheque::emprunter
+* Description: Ajoute l'objet empruntable au vecEmprunts_
+* Paramètres: - string matricule: le matricule de l'abonne qui veut faire l'emprunt (OUT)
+*             - string cote: la cote de l'objet empruntable (OUT)
+*             - unsigned int date: la date de retour pour l'emprunt (IN)
+* Retour: (bool) true si l'emprunt est fait, false sinon
+*******************************************************************************************/
 bool Bibliotheque::emprunter(const string& matricule, const string& cote, unsigned int date)
 {
 	//On doit vérifier que tous les vecteurs sont parcourus
@@ -289,14 +274,13 @@ bool Bibliotheque::emprunter(const string& matricule, const string& cote, unsign
 
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Retourne un objetEmpruntable associé à un Abonné et retourne true ou false si accompli.
-//@param string matricule (Référence)
-//@param string cote (Référence)
-//@return bool
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**********************************************************************************************
+* Fonction: Bibliotheque::retourner
+* Description: Retourne un emprunt et enlève l'objet empruntable du vecEmprunts_
+* Paramètres: - string matricule: le matricule de l'abonne qui retourne l'objet empruntable
+*             - string cote: la cote de l'objet empruntable qui est retourne 
+* Retour: (bool) true le retour est fait, false sinon
+**********************************************************************************************/
 bool Bibliotheque::retourner(const string& matricule, const string& cote)
 {
 	int emPos = -1;
@@ -333,13 +317,12 @@ bool Bibliotheque::retourner(const string& matricule, const string& cote)
 
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// Afficher l'information de l'abonné correspondant au matricule
-//@param string matricule (Référence)
-//
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::infoAbonne
+* Description: Affiche les informations de l'abonne qui correspond au matricule donne
+* Paramètres: - string matricule: le matricule de l'abonne (OUT)
+* Retour: aucun
+****************************************************************************/
 void Bibliotheque::infoAbonne(const string& matricule) const
 {
 	//On doit vérifier que tous les vecteurs sont parcourus
@@ -368,13 +351,12 @@ void Bibliotheque::infoAbonne(const string& matricule) const
 
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// L'opérateur += apelle la fonction ajouterAbonne() et retourne l'objet de type Bibliothèque après la modification
-//@param Abonne* abonne
-//@return Bibliothèque
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************************
+* Fonction: Bibliotheque::operator+=
+* Description: Ajoute un abonne
+* Paramètres: - Abonne* abonne: un pointeur d'abonne à ajouter à la bibliotheque(OUT)
+* Retour: (Bibliotheque) la bibliotheque avec le nouvel abonne
+*****************************************************************************************/
 Bibliotheque & Bibliotheque::operator+=(Abonne * abonne)
 {
 	
@@ -382,53 +364,49 @@ Bibliotheque & Bibliotheque::operator+=(Abonne * abonne)
 	return *this;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// L'opérateur += apelle la fonction ajouterObjetEmpruntable() et retourne l'objet de type Bibliothèque après la modification
-//@param ObjetEmpruntable * obj
-//@return Bibliothèque
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**************************************************************************************************************
+* Fonction: Bibliotheque::operator+=
+* Description: Ajoute un objet empruntable 
+* Paramètres: - ObjetEmpruntable* obj : un pointeur d'un objet empruntable a ajouter a la bibliotheque (OUT)
+* Retour: (Bibliotheque) la bibliotheque avec le nouvel objet empruntable
+**************************************************************************************************************/
 Bibliotheque & Bibliotheque::operator+=(ObjetEmpruntable * obj)
 {
 	ajouterObjetEmpruntable(obj);
 	return *this;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// L'opérateur -= apelle la fonction retirerAbonne() et retourne l'objet de type Bibliothèque après la modification
-//@param Abonne * abonne
-//@return Bibliothèque
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::operator-=
+* Description: Retire un abonne
+* Paramètres: - Abonne* abonne: un pointeur d'abonne a retirer de la bibliotheque (OUT)
+* Retour: (Bibliotheque) la bibliotheque sans l'abonne retire
+****************************************************************************/
 Bibliotheque & Bibliotheque::operator-=(Abonne * abonne)
 {
 	retirerAbonne(abonne->obtenirMatricule());
 	return *this;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// L'opérateur -= apelle la fonction retirerObjetEmpruntable() et retourne l'objet de type Bibliothèque après la modification
-//@param ObjetEmpruntable * obj
-//@return Bibliothèque
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/****************************************************************************
+* Fonction: Bibliotheque::operator-=
+* Description: Retire un objet empruntable
+* Paramètres: - ObjetEmpruntable* obj: un pointeur d'un objet empruntable a retirer de la bibliotheque (OUT)
+* Retour: (Bibliotheque) la bibliotheque sans l'objet empruntable retire
+****************************************************************************/
 Bibliotheque & Bibliotheque::operator-=(ObjetEmpruntable * obj)
 {
 	retirerObjetEmpruntable(obj->obtenirCote());
 	return *this;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-// L'opérateur >> appelle la fonction rechercherObjetEmpruntable() en premant en paramètre un string passé par le istream
-//@param istream in (Référence)
-//@param Bibliotheque biblio (Référence)
-//@return istream in (Référence)
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/***************************************************************************************************
+* Fonction: operator >>
+* Description: Recherche un mot fourni par l'utilisateur dans la bibliotheque 
+* Paramètres: - istream in: un paramètre d'entrée (IN)
+*             - Bibliotheue biblio: une bibliotheque pour trouver le in fourni par l'utilisateur 
+* Retour: (istream) la valeur de in
+****************************************************************************************************/
 std::istream & operator>>(std::istream & in, const Bibliotheque & biblio)
 {
 	string mot;
