@@ -1,3 +1,11 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Fichier: LivreNumerique.h
+//	Auteur(s) : Charles - Olivier Favreau et Stéphanie Leclerc
+//	Date de creation : 01 mars 2016
+//	Date de modification : 03 mars 2016
+//Description : Description de la classe LivreNumerique
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef LIVRENUMERIQUE_H
 #define LIVRENUMERIQUE_H
 
@@ -30,19 +38,19 @@ class LivreNumerique :	public ObjetNumerique, public Livre
 {
 public:
 	LivreNumerique();
-	LivreNumerique(FORMAT_DOCUMENT format, unsigned int tailleOctet, std::string lien,
+	LivreNumerique(FORMAT_DOCUMENT& format, unsigned int& tailleOctet, std::string& lien,
 		const std::string& cote, const std::string& titre, unsigned int annee,
 		unsigned int ageMin, unsigned int nbExemplaires, const std::string& auteur, const std::string& genre);
 	~LivreNumerique();
 	FORMAT_DOCUMENT obtenirFormat()const;
-	void modifierFormat(FORMAT_DOCUMENT format);
+	void modifierFormat(FORMAT_DOCUMENT& format);
 	unsigned int obtenirTailleOctet()const;
 	void modifierTailleOctet(unsigned int tailleOctet);
 	std::string obtenirLien()const;
-	void modifierLien(std::string lien);
+	void modifierLien(std::string& lien);
 	std::string obtenirFormatStr()const;
 	bool recherche(const std::string& motsCle) const;
-	friend std::ostream& operator<<(std::ostream& o, LivreNumerique livreNumerique);
+	friend std::ostream& operator<<(std::ostream& o, LivreNumerique& livreNumerique);
 
 private:
 	FORMAT_DOCUMENT format_;
