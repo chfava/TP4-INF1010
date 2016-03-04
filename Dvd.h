@@ -1,3 +1,11 @@
+/*
+Fichier: DVD.h
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 1er mars 2016
+Date de modification: 3 mars 2016
+Description: Description de la classe DVD
+*/
+
 #ifndef DVD_H
 #define DVD_H
 #include "ObjetEmpruntable.h"
@@ -20,7 +28,7 @@ public:
 	void ajouterActeur(std::string const& acteur);
 	void retirerActeur(std::string const& acteur);
 
-	//recherche renvoie true si motsCle est pr�sent dans les attributs de type string; false sinon
+	//recherche renvoie true si motsCle est présent dans les attributs de type string; false sinon
 	bool recherche(const std::string& motsCle) const;
 
 	friend std::ostream& operator<<(std::ostream& o, const Dvd& dvd);
