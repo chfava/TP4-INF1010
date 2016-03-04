@@ -1,3 +1,10 @@
+/*
+Fichier: ObjetEmpruntable.h
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 1er mars 2016
+Date de modification: 4 mars 2016
+Description: Définition de la classe Livre
+*/
 #ifndef OBJETEMPRUNTABLE_H
 #define OBJETEMPRUNTABLE_H
 
@@ -37,7 +44,7 @@ public :
 	void modifierTitre(const std::string& titre);
 	void modifierCote(const std::string& cote);
 	void modifierAnnee(unsigned int annee);
-	//recherche renvoie un true si le motsCle est pr�sent dans le titre ou dans la cote; false sinon
+	//recherche renvoie un true si le motsCle est présent dans le titre ou dans la cote; false sinon
 	bool recherche(const std::string& motsCle) const;
 
 
