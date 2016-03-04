@@ -1,3 +1,10 @@
+/*
+Fichier: Livre.cpp
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 1er mars 2016
+Date de modification: 4 mars 2016
+Description: Fonctions reliées à classe Livre
+*/
 #include "Livre.h"
 
 using namespace std;
@@ -43,7 +50,7 @@ bool Livre::recherche(const std::string & motsCle) const
 {
 	std::size_t trouveAuteur = convertirMinuscule(auteur_).find(convertirMinuscule(motsCle));
 	std::size_t trouveGenre = convertirMinuscule(genre_).find(convertirMinuscule(motsCle));
-	//Utilisation du demasquage pour appeler la m�thode de la classe m�re
+	//Utilisation du demasquage pour appeler la méthode de la classe mère
 	bool trouve = ObjetEmpruntable::recherche(motsCle)
 			|| (trouveAuteur != string::npos)
 			|| (trouveGenre !=string::npos);
