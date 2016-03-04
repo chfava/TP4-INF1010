@@ -23,7 +23,7 @@ public:
 
 	~Abonne();
 
-	std::string obtenirMatricule() const;	
+	virtual std::string obtenirMatricule() const;	
 	std::string obtenirNom() const;
 	std::string obtenirPrenom() const;
 	unsigned int obtenirAge() const;

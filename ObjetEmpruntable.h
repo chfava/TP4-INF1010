@@ -6,13 +6,15 @@
 #include <typeinfo>
 
 
-class ObjetEmpruntable
+class ObjetEmpruntable 
 {
 public :
 
 	/// TP4
 
 	std::string ObjetEmpruntable::obtenirNomClasse() const;
+	void afficherObjetEmpruntable(std::ostream& o) const;
+	
 	
 	/// Anciens TP
 	ObjetEmpruntable();
@@ -36,7 +38,7 @@ public :
 	void modifierCote(const std::string& cote);
 	void modifierAnnee(unsigned int annee);
 	//recherche renvoie un true si le motsCle est présent dans le titre ou dans la cote; false sinon
-	virtual bool recherche(const std::string& motsCle) const;
+	bool recherche(const std::string& motsCle) const;
 
 
 	friend std::ostream& operator<<(std::ostream& o, const ObjetEmpruntable& objetEmpruntable);
