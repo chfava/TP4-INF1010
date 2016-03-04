@@ -1,3 +1,11 @@
+/*
+Fichier: Abonne.h
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 25 février 2016
+Date de modification: 4 mars 2016
+Description: Description de la classe Abonne
+*/
+
 #ifndef ABONNE_H
 #define ABONNE_H
 
