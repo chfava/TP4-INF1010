@@ -1,3 +1,10 @@
+/*
+Fichier: Livre.h
+Auteur(s): Charles-Olivier Favreau et Stéphanie Leclerc
+Date de creation: 1er mars 2016
+Date de modification: 4 mars 2016
+Description: Définition de la classe Livre
+*/
 #ifndef LIVRE_H
 #define LIVRE_H
 #include "ObjetEmpruntable.h"
@@ -18,7 +25,7 @@ public:
 	void modifierAuteur(std::string const& auteur);
 	void modifierGenre(std::string const& genre);
 
-	//recherche renvoie true si motsCle est pr�sent dans les attributs de type string; false sinon
+	//recherche renvoie true si motsCle est présent dans les attributs de type string; false sinon
 	bool recherche(const std::string& motsCle) const;
 
 	friend std::ostream& operator<<(std::ostream& o, const Livre& livre);
