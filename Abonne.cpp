@@ -259,7 +259,7 @@ bool Abonne::estEmprunte(const ObjetEmpruntable & objetEmpruntable) const
 * Paramètres: Emprunt* emprunt: un pointeur d'emprunt (OUT)
 * Retour: aucun
 ****************************************************************************/
-void Abonne::ajouterEmprunt(Emprunt * emprunt)
+void Abonne::ajouterEmprunt(Emprunt* emprunt)
 {
 	vecEmprunts_.push_back(emprunt);
 }

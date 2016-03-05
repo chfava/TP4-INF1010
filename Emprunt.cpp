@@ -79,7 +79,7 @@ void Emprunt::modifierDateRetour(unsigned int date)
 *             - unsigned int dateRetour : une valeur de date retour (IN)
 * Retour: aucun
 ****************************************************************************/
-Emprunt::Emprunt(string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour) : matricule_(matricule), objEmprunt_(&objetEmpruntable), dateRetour_(dateRetour)
+Emprunt::Emprunt(const string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour) : matricule_(matricule), objEmprunt_(&objetEmpruntable), dateRetour_(dateRetour)
 {
 
 }

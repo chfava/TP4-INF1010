@@ -21,6 +21,7 @@ public:
 
 	virtual void modifierTailleDoc() = 0;
 	virtual void modifierLien() = 0;
+	virtual ~ObjetNumerique(){};
 	
 };
 

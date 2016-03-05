@@ -1,4 +1,11 @@
-﻿#include <vector>
+﻿/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Fichier: Main.cpp
+//	Auteur(s) : Charles - Olivier Favreau et Stéphanie Leclerc
+//	Date de creation : 01 mars 2016
+//	Date de modification : 03 mars 2016
+//Description : Fonction principale : main()
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <vector>
 #include <iostream>
 #include "Bibliotheque.h"
 #include "Abonne.h"

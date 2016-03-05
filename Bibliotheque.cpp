@@ -265,7 +265,8 @@ bool Bibliotheque::emprunter(const string& matricule, const string& cote, unsign
 
 		if (peutEmprunte)
 		{
-			vecEmprunts_.push_back(new Emprunt(matricule, *obj, date));
+			Emprunt* emprunt = new Emprunt(matricule, *obj, date);
+			ab->ajouterEmprunt(emprunt);
 			obj->modifierNbDisponibles(obj->obtenirNbDisponibles() - 1);
 		}
 	}

@@ -29,7 +29,7 @@ public:
 
 
 	/// _____ TP4 _____
-	Emprunt(std::string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour);
+	Emprunt(const std::string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour);
 	ObjetEmpruntable* obtenirObjetEmpruntable() const;
 	void modifierObjetEmpruntable(ObjetEmpruntable* objetEmpruntable);
 	friend std::ostream& operator<<(std::ostream& o, ObjetEmpruntable& objetEmpruntable);

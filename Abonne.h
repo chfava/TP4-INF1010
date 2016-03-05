@@ -24,7 +24,7 @@ public:
 	/// TP4
 	std::string Abonne::obtenirNomClasse() const;
 
-
+	
 	/// TP3
 	Abonne();
 	Abonne(const std::string& matricule, const std::string& nom, const std::string& prenom, unsigned int age);
@@ -50,7 +50,7 @@ public:
 	/// ____TP3_____
 	virtual unsigned int obtenirLimiteEmprunt() const;
 	bool estEmprunte(const ObjetEmpruntable& objetEmpruntable) const;
-	void ajouterEmprunt(Emprunt * emprunt);
+	void ajouterEmprunt(Emprunt* emprunt);
 	bool retirerEmprunt(ObjetEmpruntable * objetEmpruntable);
 
 private:
