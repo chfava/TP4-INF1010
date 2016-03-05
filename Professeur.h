@@ -23,7 +23,7 @@ public:
 	bool retirerEcole(std::string const& ecole);
 	unsigned int obtenirLimiteEmprunt() const;
 
-	friend std::ostream & operator<<(std::ostream & o, const Professeur & professeur);
+	friend std::ostream& operator<<(std::ostream& o, const Professeur& professeur);
 
 private:
 	std::vector<std::string> vecEcole_;

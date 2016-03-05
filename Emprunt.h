@@ -12,6 +12,7 @@ Description: Description de la classe Emprunt
 #include "Livre.h"
 #include "Dvd.h"
 #include "Abonne.h"
+#include <iostream>
 
 class Emprunt : public ObjetEmpruntable
 {
@@ -28,10 +29,10 @@ public:
 
 
 	/// _____ TP4 _____
-	Emprunt(std::string matricule, ObjetEmpruntable objetEmpruntable, unsigned int dateRetour);
+	Emprunt(std::string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour);
 	ObjetEmpruntable* obtenirObjetEmpruntable() const;
 	void modifierObjetEmpruntable(ObjetEmpruntable* objetEmpruntable);
-	friend ostream& operator<<(ostream& o, ObjetEmpruntable objetEmpruntable);
+	friend std::ostream& operator<<(std::ostream& o, ObjetEmpruntable objetEmpruntable);
 
 
 

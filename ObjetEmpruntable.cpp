@@ -40,7 +40,8 @@ std::string ObjetEmpruntable::obtenirNomClasse() const
 void ObjetEmpruntable::afficherObjetEmpruntable(std::ostream & o) const
 {
 	string nomClasse = this->obtenirNomClasse();
-	nomClasse* = dynamic_cast<nomClasse> (ObjetEmpruntable*);
+
+	cout << dynamic_cast<nomClasse> (ObjetEmpruntable*);
 
 }
 

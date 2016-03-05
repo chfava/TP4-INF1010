@@ -89,8 +89,9 @@ void Emprunt::modifierDateRetour(unsigned int date)
 *             - unsigned int dateRetour : une valeur de date retour (IN)
 * Retour: aucun
 ****************************************************************************/
-Emprunt::Emprunt(std::string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour) : matricule_(matricule), objEmprunt_(&objetEmpruntable), dateRetour_(dateRetour)
+Emprunt::Emprunt(string& matricule, ObjetEmpruntable& objetEmpruntable, unsigned int dateRetour) : matricule_(matricule), objEmprunt_(&objetEmpruntable), dateRetour_(dateRetour)
 {
+
 }
 
 /****************************************************************************
@@ -118,9 +119,9 @@ void Emprunt::modifierObjetEmpruntable(ObjetEmpruntable * objetEmpruntable)
 /*********************************************************************************************
 * Fonction: operator <<
 * Description: Affichage des attributs concernant un emprunt
-* Paramètres: - ostream o: un paramètre de sortie 
+* Paramètres: - ostream o: un paramètre de sortie
 *             - ObjetEmpruntable objetEmpruntable: un objet empruntable à afficher (OUT)
-* Retour: (ostream) la valeur de o  
+* Retour: (ostream) la valeur de o
 *********************************************************************************************/
 ostream& operator<<(ostream& o, const ObjetEmpruntable& objetEmpruntable) {
 	o << objetEmpruntable.obtenirNomClasse() << endl;

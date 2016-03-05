@@ -11,15 +11,15 @@ Description: Définition de la classe ObjetNumerique
 
 
 
-class ObjetNumerique : virtual public ObjetEmpruntable
+class ObjetNumerique : public ObjetEmpruntable
 {
 public:
 
-	virtual unsigned int obtenirTailleDoc() const =0;
-	virtual string obtenirLien() const=0;
+	virtual unsigned int obtenirTailleDoc() const = 0;
+	virtual string obtenirLien() const = 0;
 
-	virtual void modifierTailleDoc() =0;
-	virtual void modifierLien() =0;
+	virtual void modifierTailleDoc() = 0;
+	virtual void modifierLien() = 0;
 	
 };
 
