@@ -11,6 +11,7 @@ Description: Fonctions reliées à classe ObjetEmpruntable
 #include "Livre.h"
 #include "LivreNumerique.h"
 #include "Dvd.h"
+#include <typeinfo>
 
 using namespace std;
 /**********************************************************************************
@@ -39,9 +40,17 @@ std::string ObjetEmpruntable::obtenirNomClasse() const
 ****************************************************************************/
 void ObjetEmpruntable::afficherObjetEmpruntable(std::ostream & o) const
 {
-	string nomClasse = this->obtenirNomClasse();
-
-	cout << dynamic_cast<nomClasse> (ObjetEmpruntable*);
+	if (this!=nullptr){
+		if (typeid(*this).name()==typeid(Livre).name()){
+			const Livre* livre = dynamic_cast <const Livre*> (this);
+			o << *livre; 
+		}
+		
+		if (typeid(*this).name()==typeid(Dvd).name()){
+			const Dvd* dvd = dynamic_cast <const Dvd*> (this);
+			o << *dvd;
+		}
+	}
 
 }
 

@@ -19,8 +19,8 @@ public :
 
 	/// TP4
 
-	std::string ObjetEmpruntable::obtenirNomClasse() const;
-	void afficherObjetEmpruntable(std::ostream& o) const;
+	virtual std::string ObjetEmpruntable::obtenirNomClasse() const;
+	virtual void afficherObjetEmpruntable(std::ostream& o) const;
 	
 	
 	/// Anciens TP
