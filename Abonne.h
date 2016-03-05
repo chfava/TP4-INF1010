@@ -32,25 +32,23 @@ public:
 	~Abonne();
 
 	virtual std::string obtenirMatricule() const;	
-	std::string obtenirNom() const;
-	std::string obtenirPrenom() const;
-	unsigned int obtenirAge() const;
+	virtual std::string obtenirNom() const;
+	virtual std::string obtenirPrenom() const;
+	virtual unsigned int obtenirAge() const;
 
-	void modifierMatricule(const std::string& matricule);
-	void modifierNom(const std::string& nom);
-	void modifierPrenom(const std::string& prenom);
-	void modifierAge(unsigned int age);
-
-	std::vector<Emprunt*> obtenirEmprunts() const;
-
-	unsigned int obtenirNombreEmprunte() const;
+	virtual void modifierMatricule(const std::string& matricule);
+	virtual void modifierNom(const std::string& nom);
+	virtual void modifierPrenom(const std::string& prenom);
+	virtual void modifierAge(unsigned int age);
+	virtual std::vector<Emprunt*>  obtenirEmprunts() const;
+	virtual unsigned int obtenirNombreEmprunte() const;
 	friend std::ostream& operator<<(std::ostream& o, const Abonne& abonne);
-	bool operator==(const Abonne& abonne) const;
-	bool operator==(const std::string& matricule) const;
+	virtual bool operator==(const Abonne& abonne) const;
+	virtual bool operator==(const std::string& matricule) const;
 	friend bool operator==(const std::string& matricule, const Abonne& abonne);
 
 	/// ____TP3_____
-	unsigned int obtenirLimiteEmprunt() const;
+	virtual unsigned int obtenirLimiteEmprunt() const;
 	bool estEmprunte(const ObjetEmpruntable& objetEmpruntable) const;
 	void ajouterEmprunt(Emprunt * emprunt);
 	bool retirerEmprunt(ObjetEmpruntable * objetEmpruntable);

@@ -11,6 +11,7 @@
 
 
 #include "ObjetNumerique.h"
+#include "ObjetEmpruntable.h"
 #include "Livre.h"
 #include <string>
 #include <iostream>
@@ -45,9 +46,9 @@ public:
 	FORMAT_DOCUMENT obtenirFormat()const;
 	void modifierFormat(FORMAT_DOCUMENT& format);
 	unsigned int obtenirTailleOctet()const;
-	void modifierTailleOctet(unsigned int tailleOctet);
-	std::string obtenirLien()const;
-	void modifierLien(std::string& lien);
+	virtual void modifierTailleOctet(unsigned int tailleOctet);
+	virtual std::string obtenirLien()const;
+	virtual void modifierLien(std::string& lien);
 	std::string obtenirFormatStr()const;
 	bool recherche(const std::string& motsCle) const;
 	friend std::ostream& operator<<(std::ostream& o, LivreNumerique& livreNumerique);

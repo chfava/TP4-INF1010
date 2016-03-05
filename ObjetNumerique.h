@@ -8,7 +8,8 @@ Description: Définition de la classe ObjetNumerique
 #ifndef	OBJETNUMERIQUE_H
 #define OBJETNUMERIQUE_H
 
-
+#include <string>
+#include "ObjetEmpruntable.h"
 
 
 class ObjetNumerique : public ObjetEmpruntable
@@ -16,7 +17,7 @@ class ObjetNumerique : public ObjetEmpruntable
 public:
 
 	virtual unsigned int obtenirTailleDoc() const = 0;
-	virtual string obtenirLien() const = 0;
+	virtual std::string obtenirLien() const = 0;
 
 	virtual void modifierTailleDoc() = 0;
 	virtual void modifierLien() = 0;

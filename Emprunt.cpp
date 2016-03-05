@@ -44,16 +44,6 @@ unsigned int Emprunt::obtenirDateRetour() const
 	return dateRetour_;
 }
 
-/****************************************************************************
-* Fonction: Emprunt::obtenirObjetEmpruntable
-* Description: Retourne la valeur de objEmprunt_
-* Paramètres: aucun
-* Retour: (ObjetEmpruntable*) un pointeur d'un objet empruntable 
-****************************************************************************/
-ObjetEmpruntable* Emprunt::obtenirObjetEmpruntable() const
-{
-	return objEmprunt_;
-}
 
 /****************************************************************************
 * Fonction: Emprunt::modifierMatricule
@@ -125,6 +115,7 @@ void Emprunt::modifierObjetEmpruntable(ObjetEmpruntable * objetEmpruntable)
 *********************************************************************************************/
 ostream& operator<<(ostream& o, const ObjetEmpruntable& objetEmpruntable) {
 	o << objetEmpruntable.obtenirNomClasse() << endl;
+	return o;
 };
 
 
